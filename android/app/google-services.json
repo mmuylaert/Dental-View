@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "444424039160",
+    "project_id": "dentaldecision",
+    "storage_bucket": "dentaldecision.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444424039160:android:9a8c93e9266dbc83b1290d",
+        "android_client_info": {
+          "package_name": "com.auth0.dentaldecision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444424039160-06o8dqqrbkue254nuvv4rdrava53to9n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSJGkalz5rzOJaxfP6DyC40GVIMThuHw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444424039160-06o8dqqrbkue254nuvv4rdrava53to9n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
