@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Question {
@@ -12,17 +13,21 @@ class MultipleChoiceQuestion extends StatefulWidget {
   final Function(List<String>) onSelect;
 
   const MultipleChoiceQuestion({
-    Key? key,
-    required this.question,
-    required this.onSelect,
+    required this.question, required this.onSelect, Key? key,
   }) : super(key: key);
 
   @override
   _MultipleChoiceQuestionState createState() => _MultipleChoiceQuestionState();
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Question>('question', question));
+  }
+
 }
 
 class _MultipleChoiceQuestionState extends State<MultipleChoiceQuestion> {
-  List<String> _selectedOptions = [];
+  final List<String> _selectedOptions = <String>[];
 
   void _onOptionSelected(String option) {
     setState(() {
@@ -38,19 +43,19 @@ class _MultipleChoiceQuestionState extends State<MultipleChoiceQuestion> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 16.0),
+      margin: const EdgeInsets.symmetric(vertical: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           Text(
             widget.question.question,
-            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: widget.question.options.map((option) {
               return Row(
-                children: [
+                children: <Widget>[
                   Checkbox(
                     value: _selectedOptions.contains(option),
                     onChanged: (_) => _onOptionSelected(option),
@@ -67,12 +72,14 @@ class _MultipleChoiceQuestionState extends State<MultipleChoiceQuestion> {
 }
 
 class Questionnaire extends StatefulWidget {
+  const Questionnaire({super.key});
+
   @override
   _QuestionnaireState createState() => _QuestionnaireState();
 }
 
 class _QuestionnaireState extends State<Questionnaire> {
-  Map<String, List<String>> _answers = {};
+  final Map<String, List<String>> _answers = <String, List<String>>{};
 
   void _updateAnswer(String question, List<String> options) {
     setState(() {
@@ -82,44 +89,43 @@ class _QuestionnaireState extends State<Questionnaire> {
 
   List<String> _getDiagnosis() {
     // Lógica para determinar o diagnóstico com base nas respostas
-    // Aqui, você pode substituir essa lógica com a sua própria implementação
-    List<String> diagnosis = [];
+    final List<String> diagnosis = <String>[];
 
     // Exemplo de diagnóstico com base nas respostas selecionadas
-    bool isFemale1 = _answers['gênero']?.contains('Feminino') ?? false;
-    bool isMale1 = _answers['gênero']?.contains('Masculino') ?? false;
-    bool isGenreNotSelected1 = _answers['gênero']?.contains('Não Selecionado') ?? false;
-    bool isMelanoderma1 = _answers['etnia']?.contains('Melanoderma') ?? false;
-    bool isAsian1 = _answers['etnia']?.contains('Asiático') ?? false;
-    bool isCaucasian1 = _answers['etnia']?.contains('Caucasiano') ?? false;
-    bool isIndigenous1 = _answers['etnia']?.contains('Indígena') ?? false;
-    bool isEtinyNotSelected1 = _answers['etnia']?.contains('Não Selecionado') ?? false;
-    bool is0to101 = _answers['idade']?.contains('Entre 0 e 10 anos') ?? false;
-    bool is11to251 = _answers['idade']?.contains('Entre 11 e 25 anos') ?? false;
-    bool is26to501 = _answers['idade']?.contains('Entre 26 e 50 anos') ?? false;
-    bool isOver601 = _answers['idade']?.contains('Mais de 60 anos') ?? false;
-    bool isPainPresent1 = _answers['dor']?.contains('Não') ?? false;
-    bool isParestesia1 = _answers['parestesia']?.contains('Não') ?? false;
-    bool isBifosfonatos1 = _answers['bifosfonatos']?.contains('Não se aplica') ?? false;
-    bool isMaxila1 = _answers['localização']?.contains('Maxila') ?? false;
-    bool isMandibula1 = _answers['localização']?.contains('Mandíbula') ?? false;
-    bool isMaxilaAndMandibula = _answers['localização']?.contains('Maxila e Mandíbula') ?? false;
-    bool isIncisivos1 = _answers['localização_local']?.contains('Região dos incisivos') ?? false;
-    bool isCaninos1 = _answers['localização_local']?.contains('Região dos caninos') ?? false;
-    bool isPreMolares1 = _answers['localização_local']?.contains('Região de pré-molares') ?? false;
-    bool isMolares1 = _answers['localização_local']?.contains('Região dos molares') ?? false;
-    bool isMandibulaLocal1 = _answers['localização_local']?.contains('Região da mandíbula') ?? false;
-    bool isOrigem1 = _answers['origem']?.contains('Central') ?? false;
+    final bool isFemale1 = _answers['gênero']?.contains('Feminino') ?? false;
+    final bool isMale1 = _answers['gênero']?.contains('Masculino') ?? false;
+    final bool isGenreNotSelected1 = _answers['gênero']?.contains('Não Selecionado') ?? false;
+    final bool isMelanoderma1 = _answers['etnia']?.contains('Melanoderma') ?? false;
+    final bool isAsian1 = _answers['etnia']?.contains('Asiático') ?? false;
+    final bool isCaucasian1 = _answers['etnia']?.contains('Caucasiano') ?? false;
+    final bool isIndigenous1 = _answers['etnia']?.contains('Indígena') ?? false;
+    final bool isEtinyNotSelected1 = _answers['etnia']?.contains('Não Selecionado') ?? false;
+    final bool is0to101 = _answers['idade']?.contains('Entre 0 e 10 anos') ?? false;
+    final bool is11to251 = _answers['idade']?.contains('Entre 11 e 25 anos') ?? false;
+    final bool is26to501 = _answers['idade']?.contains('Entre 26 e 50 anos') ?? false;
+    final bool isOver601 = _answers['idade']?.contains('Mais de 60 anos') ?? false;
+    final bool isPainPresent1 = _answers['dor']?.contains('Não') ?? false;
+    final bool isParestesia1 = _answers['parestesia']?.contains('Não') ?? false;
+    final bool isBifosfonatos1 = _answers['bifosfonatos']?.contains('Não se aplica') ?? false;
+    final bool isMaxila1 = _answers['localização']?.contains('Maxila') ?? false;
+    final bool isMandibula1 = _answers['localização']?.contains('Mandíbula') ?? false;
+    final bool isMaxilaAndMandibula = _answers['localização']?.contains('Maxila e Mandíbula') ?? false;
+    final bool isIncisivos1 = _answers['localização_local']?.contains('Região dos incisivos') ?? false;
+    final bool isCaninos1 = _answers['localização_local']?.contains('Região dos caninos') ?? false;
+    final bool isPreMolares1 = _answers['localização_local']?.contains('Região de pré-molares') ?? false;
+    final bool isMolares1 = _answers['localização_local']?.contains('Região dos molares') ?? false;
+    final bool isMandibulaLocal1 = _answers['localização_local']?.contains('Região da mandíbula') ?? false;
+    final bool isOrigem1 = _answers['origem']?.contains('Central') ?? false;
     
     diagnosis.add(((isFemale1 || isMale1 || isGenreNotSelected1) && isOver601) ? 'Cisto Dentígero' : '');
 
-    bool isAsian2 = _answers['etnia']?.contains('Asiático') ?? false;
-    bool is26to502 = _answers['idade']?.contains('Entre 26 e 50 anos') ?? false;
+    final bool isAsian2 = _answers['etnia']?.contains('Asiático') ?? false;
+    final bool is26to502 = _answers['idade']?.contains('Entre 26 e 50 anos') ?? false;
     diagnosis.add((isAsian2 && is26to502) ? 'Diagnóstico B' : '');
 
-    bool isCaucasian3 = _answers['etnia']?.contains('Caucasiano') ?? false;
-    bool is11to253 = _answers['idade']?.contains('Entre 11 e 25 anos') ?? false;
-    bool isMaxila3 = _answers['localização']?.contains('Maxila') ?? false;
+    final bool isCaucasian3 = _answers['etnia']?.contains('Caucasiano') ?? false;
+    final bool is11to253 = _answers['idade']?.contains('Entre 11 e 25 anos') ?? false;
+    final bool isMaxila3 = _answers['localização']?.contains('Maxila') ?? false;
     diagnosis.add((isCaucasian3 && is11to253 && isMaxila3) ? 'Diagnóstico C' : '');
 
 
@@ -131,111 +137,111 @@ class _QuestionnaireState extends State<Questionnaire> {
     return MaterialApp(
       title: 'Questionnaire',
       home: Scaffold(
-        appBar: AppBar(title: Text('Questionário')),
+        appBar: AppBar(title: const Text('Questionário')),
         body: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+            children: <Widget>[
               MultipleChoiceQuestion(
-                question: Question('Qual o gênero biológico do paciente?', ['Feminino', 'Masculino', 'Não selecionado']),
+                question: Question('Qual o gênero biológico do paciente?', <String>['Feminino', 'Masculino', 'Não selecionado']),
                 onSelect: (options) => _updateAnswer('gênero', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Qual a etnia do paciente?', ['Melanoderma', 'Asiático', 'Caucasiano', 'Indígena', 'Não selecionado']),
+                question: Question('Qual a etnia do paciente?', <String>['Melanoderma', 'Asiático', 'Caucasiano', 'Indígena', 'Não selecionado']),
                 onSelect: (options) => _updateAnswer('etnia', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Qual a idade do paciente?', ['Entre 0 e 10 anos', 'Entre 11 e 25 anos', 'Entre 26 e 50 anos', 'Mais de 60 anos']),
+                question: Question('Qual a idade do paciente?', <String>['Entre 0 e 10 anos', 'Entre 11 e 25 anos', 'Entre 26 e 50 anos', 'Mais de 60 anos']),
                 onSelect: (options) => _updateAnswer('idade', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('O paciente apresenta dor?', ['Sim', 'Não', 'Não informado']),
+                question: Question('O paciente apresenta dor?', <String>['Sim', 'Não', 'Não informado']),
                 onSelect: (options) => _updateAnswer('dor', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('O paciente apresenta parestesia?', ['Sim', 'Não', 'Não informado']),
+                question: Question('O paciente apresenta parestesia?', <String>['Sim', 'Não', 'Não informado']),
                 onSelect: (options) => _updateAnswer('parestesia', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('O paciente faz uso de Bisfosfonatos?', ['Sim', 'Não', 'Não se aplica']),
+                question: Question('O paciente faz uso de Bisfosfonatos?', <String>['Sim', 'Não', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('bisfosfonatos', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Onde a lesão está?', ['Maxila', 'Mandíbula', 'Maxila e Mandíbula']),
+                question: Question('Onde a lesão está?', <String>['Maxila', 'Mandíbula', 'Maxila e Mandíbula']),
                 onSelect: (options) => _updateAnswer('localizacao', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Onde a lesão está localizada?', ['Região de incisivos', 'Região de caninos', 'Região de pré-molares', 'Região de molares', 'Ramo da mandíbula', 'ATM', 'Seios Maxilares']),
+                question: Question('Onde a lesão está localizada?', <String>['Região de incisivos', 'Região de caninos', 'Região de pré-molares', 'Região de molares', 'Ramo da mandíbula', 'ATM', 'Seios Maxilares']),
                 onSelect: (options) => _updateAnswer('localizacao_local', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Qual a origem da lesão?', ['Periférica', 'Central']),
+                question: Question('Qual a origem da lesão?', <String>['Periférica', 'Central']),
                 onSelect: (options) => _updateAnswer('origem', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Quantas lesões existem?', ['Uma', 'Duas', 'Três ou mais', 'Generalizado']),
+                question: Question('Quantas lesões existem?', <String>['Uma', 'Duas', 'Três ou mais', 'Generalizado']),
                 onSelect: (options) => _updateAnswer('quantidade', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('A lesão tem origem odontogênica?', ['Originaria de coroa', 'Originaria de raiz', 'Originaria de ápice', 'Elemento ausente', 'Não associada a dentes', 'Não se aplica']),
+                question: Question('A lesão tem origem odontogênica?', <String>['Originaria de coroa', 'Originaria de raiz', 'Originaria de ápice', 'Elemento ausente', 'Não associada a dentes', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('odontogenica', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Qual o tamanho da lesão?', ['Menor que 2cm', 'Entre 2 e 3 cm', 'Maior que 3 cm']),
+                question: Question('Qual o tamanho da lesão?', <String>['Menor que 2cm', 'Entre 2 e 3 cm', 'Maior que 3 cm']),
                 onSelect: (options) => _updateAnswer('tamanho', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Existe expansão ou rompimento de corticais?', ['Sim', 'Não']),
+                question: Question('Existe expansão ou rompimento de corticais?', <String>['Sim', 'Não']),
                 onSelect: (options) => _updateAnswer('expansao', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('A lesão é lobular?', ['Unilocular', 'Multilocular', 'Não se aplica']),
+                question: Question('A lesão é lobular?', <String>['Unilocular', 'Multilocular', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('lobular', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('A lesão é corticalizada?', ['Sim', 'Parcialmente corticalizada', 'Não corticalizada', 'Difusa', 'Não se aplica']),
+                question: Question('A lesão é corticalizada?', <String>['Sim', 'Parcialmente corticalizada', 'Não corticalizada', 'Difusa', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('corticalizada', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Como é o interior da lesão?', ['Hiperdensa/Radiopaca', 'Hipodensa/Radiolúcida', 'Mista', 'Hipodensa/Radiolúcida com \nfocos hiperdensos/radiopacos']),
+                question: Question('Como é o interior da lesão?', <String>['Hiperdensa/Radiopaca', 'Hipodensa/Radiolúcida', 'Mista', 'Hipodensa/Radiolúcida com \nfocos hiperdensos/radiopacos']),
                 onSelect: (options) => _updateAnswer('interior', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('Existem reabsorção de raízes?', ['Sim', 'Não', 'Não se aplica']),
+                question: Question('Existem reabsorção de raízes?', <String>['Sim', 'Não', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('reabsorcao', options),
               ),
               MultipleChoiceQuestion(
-                question: Question('A lesão causa impactação ou deslocamento de dentes?', ['Sim', 'Não', 'Não se aplica']),
+                question: Question('A lesão causa impactação ou deslocamento de dentes?', <String>['Sim', 'Não', 'Não se aplica']),
                 onSelect: (options) => _updateAnswer('impactacao', options),
               ),
 
               ElevatedButton(
                 onPressed: () {
-                  List<String> diagnosis = _getDiagnosis();
+                  final List<String> diagnosis = _getDiagnosis();
                   // Ação a ser realizada quando o botão for pressionado
                   // Por exemplo, exibir os diagnósticos
                   showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
-                      title: Text('Diagnóstico'),
+                      title: const Text('Diagnóstico'),
                       content: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: diagnosis
-                            .map((d) => Text('- $d', style: TextStyle(fontWeight: FontWeight.bold)))
+                            .map((d) => Text('- $d', style: const TextStyle(fontWeight: FontWeight.bold)))
                             .toList(),
                       ),
-                      actions: [
+                      actions: <Widget>[
                         ElevatedButton(
                           onPressed: () => Navigator.pop(context),
-                          child: Text('Fechar'),
+                          child: const Text('Fechar'),
                         ),
                       ],
                     ),
                   );
                 },
-                child: Text('Validar'),
+                child: const Text('Validar'),
               ),
             ],
           ),
@@ -246,5 +252,5 @@ class _QuestionnaireState extends State<Questionnaire> {
 }
 
 void main() {
-  runApp(Questionnaire());
+  runApp(const Questionnaire());
 }

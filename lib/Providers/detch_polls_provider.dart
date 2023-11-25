@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FetchPollsProvider extends ChangeNotifier {
-  List<DocumentSnapshot> _pollsList = [];
-  List<DocumentSnapshot> _usersPollsList = [];
+  List<DocumentSnapshot> _pollsList = <DocumentSnapshot<Object?>>[];
+  List<DocumentSnapshot> _usersPollsList = <DocumentSnapshot<Object?>>[];
 
   DocumentSnapshot? _individualPoll;
 
@@ -21,17 +21,17 @@ class FetchPollsProvider extends ChangeNotifier {
   User? user = FirebaseAuth.instance.currentUser;
 
   CollectionReference pollCollection =
-  FirebaseFirestore.instance.collection("polls");
+  FirebaseFirestore.instance.collection('polls');
 
   ///Fetch all polls
-  void fetchAllPolls() async {
-    pollCollection.get().then((value) {
+  Future<void> fetchAllPolls() async {
+    await pollCollection.get().then((value) {
       if (value.docs.isEmpty) {
-        _pollsList = [];
+        _pollsList = <DocumentSnapshot<Object?>>[];
         _isLoading = false;
         notifyListeners();
       } else {
-        final data = value.docs;
+        final List<QueryDocumentSnapshot<Object?>> data = value.docs;
 
         _pollsList = data;
         _isLoading = false;
@@ -41,8 +41,8 @@ class FetchPollsProvider extends ChangeNotifier {
   }
 
   ///Fetch user polls
-  void fetchUserPolls() async {
-    pollCollection.where("authorId", isEqualTo: user!.uid).get().then((value) {
+  Future<void> fetchUserPolls() async {
+    await pollCollection.where('authorId', isEqualTo: user!.uid).get().then((value) {
       print(user!.uid);
       // print(value.docs[0].data());
       if (value.docs.isEmpty) {
@@ -50,7 +50,7 @@ class FetchPollsProvider extends ChangeNotifier {
         _isLoading = false;
         notifyListeners();
       } else {
-        final data = value.docs;
+        final List<QueryDocumentSnapshot<Object?>> data = value.docs;
 
         _usersPollsList = data;
         _isLoading = false;
@@ -60,14 +60,14 @@ class FetchPollsProvider extends ChangeNotifier {
   }
 
   ///fetch individual polls
-  void fetchIndividualPolls(String id) async {
-    pollCollection.doc(id).get().then((value) {
+  Future<void> fetchIndividualPolls(String id) async {
+    await pollCollection.doc(id).get().then((value) {
       if (!value.exists) {
         _individualPoll = value;
         _isLoading = false;
         notifyListeners();
       } else {
-        final data = value;
+        final DocumentSnapshot<Object?> data = value;
 
         _individualPoll = data;
         _isLoading = false;

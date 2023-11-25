@@ -32,16 +32,16 @@ class _MainActivityPageState extends State<MainActivityPage> {
     );
   }
 
-  List<Widget> _pages = [
-    HomePage(),
-    DiagnosticsPage(),
-    AccountsPage(),
+  final List<Widget> _pages = <Widget>[
+    const HomePage(),
+    const DiagnosticsPage(),
+    const AccountsPage(),
 
   ];
 
-  List<BottomNavigationBarItem> _items = const [
-  BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-  BottomNavigationBarItem(icon: Icon(Icons.poll), label: "Diagnósticos"),
-  BottomNavigationBarItem(icon: Icon(Icons.person), label: "Perfil"),
+  final List<BottomNavigationBarItem> _items = const <BottomNavigationBarItem>[
+  BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+  BottomNavigationBarItem(icon: Icon(Icons.poll), label: 'Diagnósticos'),
+  BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Perfil'),
    ];
   }

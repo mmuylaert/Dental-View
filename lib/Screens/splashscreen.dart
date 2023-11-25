@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import '../Utils/router.dart';
 import 'Authentication/auth_page.dart';
 import 'BottomNavPages/Diagnostics/diagnostics.dart';
-import 'main_activity.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
         nextPageOnly(context, const AuthScreenPage());
       }
       else {
-        nextPage(context, DiagnosticsPage());
+        nextPage(context, const DiagnosticsPage());
       }
     });
   }
@@ -41,5 +40,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Image.asset('img/Logo_FaceView_02.png', width: 250, height: 250),
       ),
     );
+  }
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<User?>('user', user));
   }
 }

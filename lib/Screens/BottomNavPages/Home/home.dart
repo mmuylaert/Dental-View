@@ -2,18 +2,19 @@ import 'dart:developer';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
+
 import '../../../Providers/db_provider.dart';
+import '../../../Providers/detch_polls_provider.dart';
 import '../../../Screens/BottomNavPages/Diagnostics/add_diagnostic.dart';
 import '../../../Styles/colors.dart';
 import '../../../Utils/dynamic_utils.dart';
 import '../../../Utils/message.dart';
 import '../../../Utils/router.dart';
-import 'package:provider/provider.dart';
-
-import '../../../Providers/detch_polls_provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -44,27 +45,27 @@ class _HomePageState extends State<HomePage> {
           )
               : polls.pollsList.isEmpty
               ? const Center(
-            child: Text("Sem diagnósticos no momento"),
+            child: Text('Sem diagnósticos no momento'),
           )
               : CustomScrollView(
-            slivers: [
+            slivers: <Widget>[
               SliverToBoxAdapter(
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       ...List.generate(polls.pollsList.length,
                               (index) {
-                            final data = polls.pollsList[index];
+                            final DocumentSnapshot<Object?> data = polls.pollsList[index];
 
                             log(data.data().toString());
-                            Map author = data["author"];
-                            Map poll = data["poll"];
-                            Timestamp date = data["dateCreated"];
+                            final Map author = data['author'];
+                            final Map poll = data['poll'];
+                            final Timestamp date = data['dateCreated'];
 
-                            List voters = poll["voters"];
+                            final List voters = poll['voters'];
 
-                            List<dynamic> options = poll["options"];
+                            final List<dynamic> options = poll['options'];
 
                             return Container(
                               margin: const EdgeInsets.only(bottom: 10),
@@ -77,15 +78,15 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 crossAxisAlignment:
                                 CrossAxisAlignment.start,
-                                children: [
+                                children: <Widget>[
                                   ListTile(
                                     contentPadding:
                                     const EdgeInsets.all(0),
                                     leading: CircleAvatar(
                                       backgroundImage: NetworkImage(
-                                          author["profileImage"]),
+                                          author['profileImage']),
                                     ),
-                                    title: Text(author["name"]),
+                                    title: Text(author['name']),
                                     subtitle: Text(DateFormat.yMEd()
                                         .format(date.toDate())),
                                     trailing: IconButton(
@@ -93,13 +94,11 @@ class _HomePageState extends State<HomePage> {
                                           ///
                                           DynamicLinkProvider()
                                               .createLink(data.id)
-                                              .then((value) {
-                                            Share.share(value);
-                                          });
+                                              .then(Share.share);
                                         },
                                         icon: const Icon(Icons.share)),
                                   ),
-                                  Text(poll["question"]),
+                                  Text(poll['question']),
                                   const SizedBox(
                                     height: 8,
                                   ),
@@ -111,9 +110,9 @@ class _HomePageState extends State<HomePage> {
                                               WidgetsBinding.instance
                                                   .addPostFrameCallback(
                                                     (_) {
-                                                  if (vote.message != "") {
+                                                  if (vote.message != '') {
                                                     if (vote.message.contains(
-                                                        "Vote Recorded")) {
+                                                        'Vote Recorded')) {
                                                       success(context,
                                                           message: vote.message);
                                                       polls.fetchAllPolls();
@@ -132,36 +131,36 @@ class _HomePageState extends State<HomePage> {
 
                                                   ///Update vote
                                                   if (voters.isEmpty) {
-                                                    log("No vote");
+                                                    log('No vote');
                                                     vote.votePoll(
                                                         pollId: data.id,
                                                         pollData: data,
                                                         previousTotalVotes:
-                                                        poll["total_votes"],
+                                                        poll['total_votes'],
                                                         seletedOptions:
-                                                        dataOption["answer"]);
+                                                        dataOption['answer']);
                                                   } else {
                                                     final isExists =
                                                     voters.firstWhere(
                                                             (element) =>
-                                                        element["uid"] ==
+                                                        element['uid'] ==
                                                             user!.uid,
                                                         orElse: () {});
                                                     if (isExists == null) {
-                                                      log("User does not exist");
+                                                      log('User does not exist');
                                                       vote.votePoll(
                                                           pollId: data.id,
                                                           pollData: data,
                                                           previousTotalVotes:
-                                                          poll["total_votes"],
+                                                          poll['total_votes'],
                                                           seletedOptions:
                                                           dataOption[
-                                                          "answer"]);
+                                                          'answer']);
                                                       //
                                                     } else {
                                                       error(context,
                                                           message:
-                                                          "You have already voted");
+                                                          'You have already voted');
                                                     }
                                                     print(isExists.toString());
                                                   }
@@ -170,14 +169,14 @@ class _HomePageState extends State<HomePage> {
                                                   margin: const EdgeInsets.only(
                                                       bottom: 5),
                                                   child: Row(
-                                                    children: [
+                                                    children: <Widget>[
                                                       Expanded(
                                                         child: Stack(
-                                                          children: [
+                                                          children: <Widget>[
                                                             LinearProgressIndicator(
                                                               minHeight: 30,
                                                               value: dataOption[
-                                                              "percent"] /
+                                                              'percent'] /
                                                                   100,
                                                               backgroundColor:
                                                               AppColors.white,
@@ -193,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                                                               height: 30,
                                                               child: Text(
                                                                   dataOption[
-                                                                  "answer"]),
+                                                                  'answer']),
                                                             )
                                                           ],
                                                         ),
@@ -227,4 +226,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void success(BuildContext context, {required String message}) {}
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<User?>('user', user));
+  }
 }

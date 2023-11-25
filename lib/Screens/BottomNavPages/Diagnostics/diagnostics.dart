@@ -3,14 +3,14 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+
 import '../../../Providers/db_provider.dart';
+import '../../../Providers/detch_polls_provider.dart';
 import '../../../Screens/BottomNavPages/Diagnostics/add_diagnostic.dart';
 import '../../../Styles/colors.dart';
 import '../../../Utils/message.dart';
 import '../../../Utils/router.dart';
-import 'package:provider/provider.dart';
-
-import '../../../Providers/detch_polls_provider.dart';
 
 class DiagnosticsPage extends StatefulWidget {
   const DiagnosticsPage({super.key});
@@ -39,25 +39,25 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
           )
               : polls.userPollsList.isEmpty
               ? const Center(
-            child: Text("Sem diagnosticos no momento"),
+            child: Text('Sem diagnosticos no momento'),
           )
               : CustomScrollView(
-            slivers: [
+            slivers: <Widget>[
               SliverToBoxAdapter(
                 child: Container(
                   padding: const EdgeInsets.all(20),
                   child: Column(
-                    children: [
+                    children: <Widget>[
                       ...List.generate(polls.userPollsList.length,
                               (index) {
-                            final data = polls.userPollsList[index];
+                            final DocumentSnapshot<Object?> data = polls.userPollsList[index];
 
                             log(data.data().toString());
-                            Map author = data["author"];
-                            Map poll = data["poll"];
-                            Timestamp date = data["dateCreated"];
+                            final Map author = data['author'];
+                            final Map poll = data['poll'];
+                            final Timestamp date = data['dateCreated'];
 
-                            List<dynamic> options = poll["options"];
+                            final List<dynamic> options = poll['options'];
 
                             return Container(
                               margin: const EdgeInsets.only(bottom: 10),
@@ -70,15 +70,15 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
                               child: Column(
                                 crossAxisAlignment:
                                 CrossAxisAlignment.start,
-                                children: [
+                                children: <Widget>[
                                   ListTile(
                                     contentPadding:
                                     const EdgeInsets.all(0),
                                     leading: CircleAvatar(
                                       backgroundImage: NetworkImage(
-                                          author["profileImage"]),
+                                          author['profileImage']),
                                     ),
-                                    title: Text(author["name"]),
+                                    title: Text(author['name']),
                                     subtitle: Text(DateFormat.yMEd()
                                         .format(date.toDate())),
                                     trailing: Consumer<DbProvider>(
@@ -87,9 +87,9 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
                                           WidgetsBinding.instance
                                               .addPostFrameCallback(
                                                 (_) {
-                                              if (delete.message != "") {
+                                              if (delete.message != '') {
                                                 if (delete.message.contains(
-                                                    "Diagnóstico Deletado")) {
+                                                    'Diagnóstico Deletado')) {
                                                   success(context,
                                                       message:
                                                       delete.message);
@@ -120,7 +120,7 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
                                                   : const Icon(Icons.delete));
                                         }),
                                   ),
-                                  Text(poll["question"]),
+                                  Text(poll['question']),
                                   const SizedBox(
                                     height: 8,
                                   ),
@@ -131,14 +131,14 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
                                           margin: const EdgeInsets.only(
                                               bottom: 5),
                                           child: Row(
-                                            children: [
+                                            children: <Widget>[
                                               Expanded(
                                                 child: Stack(
-                                                  children: [
+                                                  children: <Widget>[
                                                     LinearProgressIndicator(
                                                       minHeight: 30,
                                                       value: dataOption[
-                                                      "percent"] /
+                                                      'percent'] /
                                                           100,
                                                       backgroundColor:
                                                       AppColors.white,
@@ -152,7 +152,7 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
                                                           horizontal: 10),
                                                       height: 30,
                                                       child: Text(dataOption[
-                                                      "answer"]),
+                                                      'answer']),
                                                     )
                                                   ],
                                                 ),
@@ -182,7 +182,7 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
       }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          nextPage(context, Questionnaire());
+          nextPage(context, const Questionnaire());
         },
         child: const Icon(Icons.add),
       ),

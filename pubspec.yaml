@@ -1,5 +1,5 @@
-name: flutterdemo
-description: A new Flutter project.
+name: faceview
+description: A FaceView project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -35,9 +35,17 @@ dependencies:
   share_plus: ^6.3.1
   firebase_dynamic_links: ^5.0.17
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "img/Logo_FaceView_App.png"
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

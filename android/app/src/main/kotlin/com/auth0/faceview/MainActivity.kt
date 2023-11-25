@@ -1,4 +1,4 @@
-package com.auth0.dentaldecision
+package com.auth0.faceview
 
 import io.flutter.embedding.android.FlutterActivity
 

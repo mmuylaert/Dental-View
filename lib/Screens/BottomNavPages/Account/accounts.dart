@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../Providers/authentication_provider.dart';
 import '../../../Styles/colors.dart';
 import '../../../Utils/message.dart';
@@ -23,7 +22,7 @@ class _AccountsPageState extends State<AccountsPage> {
           onTap: () {
             AuthProvider().logout().then((value) {
               if (value == false) {
-                error(context, message: "Tente novamente");
+                error(context, message: 'Tente novamente');
               }
               else {
                 nextPageOnly(context, const AuthScreenPage());
@@ -37,7 +36,7 @@ class _AccountsPageState extends State<AccountsPage> {
                 color: AppColors.primaryColor,
                 borderRadius: BorderRadius.circular(10)),
             alignment: Alignment.center,
-            child: const Text("Logout"),
+            child: const Text('Logout'),
           ),
         ),
       ),

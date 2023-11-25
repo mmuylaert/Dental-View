@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class DbProvider extends ChangeNotifier {
-  String _message = "";
+  String _message = '';
 
   bool _status = false;
   bool _deleteStatus = false;
@@ -16,9 +15,9 @@ class DbProvider extends ChangeNotifier {
   User? user = FirebaseAuth.instance.currentUser;
 
   CollectionReference pollCollection =
-  FirebaseFirestore.instance.collection("polls");
+  FirebaseFirestore.instance.collection('polls');
 
-  void addPoll(
+  Future<void> addPoll(
       {required String question,
         required String duration,
         required List<Map> options}) async {
@@ -26,25 +25,25 @@ class DbProvider extends ChangeNotifier {
     notifyListeners();
     try {
       ///
-      final data = {
-        "authorId": user!.uid,
-        "author": {
-          "uid": user!.uid,
-          "profileImage": user!.photoURL,
-          "name": user!.displayName,
+      final Map<String, Object> data = <String, Object>{
+        'authorId': user!.uid,
+        'author': <String, String?>{
+          'uid': user!.uid,
+          'profileImage': user!.photoURL,
+          'name': user!.displayName,
         },
-        "dateCreated": DateTime.now(),
-        "poll": {
-          "total_votes": 0,
-          "voters": <Map>[],
-          "question": question,
-          "duration": duration,
-          "options": options,
+        'dateCreated': DateTime.now(),
+        'poll': <String, Object>{
+          'total_votes': 0,
+          'voters': <Map>[],
+          'question': question,
+          'duration': duration,
+          'options': options,
         }
       };
 
       await pollCollection.add(data);
-      _message = "Poll Created";
+      _message = 'Poll Created';
       _status = false;
       notifyListeners();
     } on FirebaseException catch (e) {
@@ -52,19 +51,19 @@ class DbProvider extends ChangeNotifier {
       _status = false;
       notifyListeners();
     } catch (e) {
-      _message = "Please try again...";
+      _message = 'Please try again...';
       _status = false;
       notifyListeners();
     }
   }
 
-  void deletePoll({required String pollId}) async {
+  Future<void> deletePoll({required String pollId}) async {
     _deleteStatus = true;
     notifyListeners();
 
     try {
       await pollCollection.doc(pollId).delete();
-      _message = "Poll Deleted";
+      _message = 'Poll Deleted';
       _deleteStatus = false;
       notifyListeners();
     } on FirebaseException catch (e) {
@@ -72,13 +71,13 @@ class DbProvider extends ChangeNotifier {
       _deleteStatus = false;
       notifyListeners();
     } catch (e) {
-      _message = "Please try again...";
+      _message = 'Please try again...';
       _deleteStatus = false;
       notifyListeners();
     }
   }
 
-  void votePoll(
+  Future<void> votePoll(
       {required String? pollId,
         required DocumentSnapshot pollData,
         required int previousTotalVotes,
@@ -87,46 +86,46 @@ class DbProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      List voters = pollData['poll']["voters"];
+      final List voters = pollData['poll']['voters'];
 
-      voters.add({
-        "name": user!.displayName,
-        "uid": user!.uid,
-        "selected_option": seletedOptions,
+      voters.add(<String, String?>{
+        'name': user!.displayName,
+        'uid': user!.uid,
+        'selected_option': seletedOptions,
       });
 
       ///Create option and add items
       ///options
-      List options = pollData["poll"]["options"];
-      for (var i in options) {
-        if (i["answer"] == seletedOptions) {
-          i["percent"]++;
+      final List options = pollData['poll']['options'];
+      for (final i in options) {
+        if (i['answer'] == seletedOptions) {
+          i['percent']++;
         } else {
-          if (i["percent"] > 0) {
-            i["percent"]--;
+          if (i['percent'] > 0) {
+            i['percent']--;
           }
         }
       }
 
       ///Update poll
       final data = {
-        "author": {
-          "uid": pollData["author"]["uid"],
-          "profileImage": pollData["author"]["profileImage"],
-          "name": pollData["author"]["name"],
+        'author': {
+          'uid': pollData['author']['uid'],
+          'profileImage': pollData['author']['profileImage'],
+          'name': pollData['author']['name'],
         },
-        "dateCreated": pollData["dateCreated"],
-        "poll": {
-          "total_votes": previousTotalVotes + 1,
-          "voters": voters,
-          "question": pollData["poll"]["question"],
-          "duration": pollData["poll"]["duration"],
-          "options": options,
+        'dateCreated': pollData['dateCreated'],
+        'poll': {
+          'total_votes': previousTotalVotes + 1,
+          'voters': voters,
+          'question': pollData['poll']['question'],
+          'duration': pollData['poll']['duration'],
+          'options': options,
         }
       };
 
       await pollCollection.doc(pollId).update(data);
-      _message = "Vote Recorded";
+      _message = 'Vote Recorded';
       _status = false;
       notifyListeners();
     } on FirebaseException catch (e) {
@@ -134,14 +133,14 @@ class DbProvider extends ChangeNotifier {
       _status = false;
       notifyListeners();
     } catch (e) {
-      _message = "Please try again...";
+      _message = 'Please try again...';
       _status = false;
       notifyListeners();
     }
   }
 
   void clear() {
-    _message = "";
+    _message = '';
     notifyListeners();
   }
 }
