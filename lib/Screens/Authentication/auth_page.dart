@@ -5,7 +5,7 @@ import '../../Styles/colors.dart';
 import '../../Utils/message.dart';
 import '../../Utils/router.dart';
 import '../main_activity.dart';
-import '../BottomNavPages/Diagnostics/add_diagnostic.dart';
+import '../BottomNavPages/Diagnostics/diagnostics.dart';
 
 class AuthScreenPage extends StatefulWidget {
   const AuthScreenPage({super.key});
@@ -26,7 +26,7 @@ class _AuthScreenPageState extends State<AuthScreenPage> {
                 error(context, message: 'Tente novamente');
               }
               else {
-                nextPageOnly(context, const MainActivityPage());
+                nextPageOnly(context, const DiagnosticsPage());
               }
             });
           },
