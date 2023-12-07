@@ -188,9 +188,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         isReabsorcaoRaizesNA &&
         (isImpactacaoNao || isImpactacaoSim)) {
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Dentígero \n\n Observações: \n - Maior frequência no gênero masculino \n - Maior frequência na etnia melanoderma \n - Maior frequência entre 11 e 25 anos');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Dentígero \n\n Observações: \n - Maior frequência no gênero masculino \n - Maior frequência na etnia melanoderma \n - Maior frequência entre 11 e 25 anos\n\n\n');
     }
-    else if((isFemale || isMale) &&
+    if((isFemale || isMale) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected ) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         isPainPresent &&
@@ -208,9 +208,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesSim || isReabsorcaoRaizesNao ) &&
         (isImpactacaoNao || isImpactacaoSim)){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto do Ducto Nasopalatino \n\n Observações: \n - Maior frequência entre os 26 e os 50 anos \n - Raro entre os 0 e 10 anos');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto do Ducto Nasopalatino \n\n Observações: \n - Maior frequência entre os 26 e os 50 anos \n - Raro entre os 0 e 10 anos \n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed) &&
@@ -228,9 +228,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoNao || isImpactacaoSim)){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Palatino Mediano');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Palatino Mediano \n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected ) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed)&&
@@ -249,9 +249,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isReabsorcaoRaizesSim || isReabsorcaoRaizesNao ) &&
         (isImpactacaoNao || isImpactacaoSim)){
       diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Queratocisto* (de acordo com Neville) \n\n Observações: \n - Leve preferência ao gênero masculino \n - Leve preferência entre 26 e 50 anos'
-          '\n - Raro na região de incisivos \n - Raro na região de caninos \n - Raro na região de pré-molares');
+          '\n - Raro na região de incisivos \n - Raro na região de caninos \n - Raro na região de pré-molares \n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is11to25 || is26to50) &&
         isPainNotPresent &&
@@ -269,9 +269,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesSim || isReabsorcaoRaizesNao) &&
         (isImpactacaoNao || isImpactacaoSim)){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Sindrome do Carcinoma Nevoide Basocelular (Síndrome de Gorlin) \n\n Observações: \n - Lesões generalizadas com maior frequência \n - Origem odontogênica de coroa com maior frequência');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Sindrome do Carcinoma Nevoide Basocelular (Síndrome de Gorlin) \n\n Observações: \n - Lesões generalizadas com maior frequência \n - Origem odontogênica de coroa com maior frequência\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is26to50 || isOver60) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed)&&
@@ -289,9 +289,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         isReabsorcaoRaizesNao &&
         (isImpactacaoNao || isImpactacaoSim || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Periodontal Lateral');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Periodontal Lateral \n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -309,9 +309,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoMista &&
         (isReabsorcaoRaizesNao || isReabsorcaoRaizesNA ) &&
         (isImpactacaoNao || isImpactacaoSim )){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Odontogênico Calcificante* cisto de gorlin (de acordo com Neville) \n\n Observações: \n - Origem da lesão raramente periférica');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Odontogênico Calcificante* cisto de gorlin (de acordo com Neville) \n\n Observações: \n - Origem da lesão raramente periférica\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is26to50 || isOver60) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed) &&
@@ -329,9 +329,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNao || isReabsorcaoRaizesNA ) &&
         (isImpactacaoNao || isImpactacaoSim || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Odontogênico Glandular \n Observações: \n - Dores são raras \n - Parestesia é rara');
+      diagnosis.add('Cistos e Tumores Odontogênicos de Desenvolvimento - Cisto Odontogênico Glandular \n Observações: \n - Dores são raras \n - Parestesia é rara\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -349,9 +349,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNao || isReabsorcaoRaizesNA ) &&
         (isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto radicular \n Observações: \n - Dores são raras \n - Parestesia é rara');
+      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto radicular \n Observações: \n - Dores são raras \n - Parestesia é rara\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected )  &&
+    if((isFemale || isMale || isGenreNotSelected )  &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -369,9 +369,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         isReabsorcaoRaizesNA &&
         isImpactacaoNA){
-      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto residual (radicular)');
+      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto residual (radicular)\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25) &&
         (isPainPresent || isPainNotInformed) &&
@@ -389,9 +389,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto da bifurcação vestibular');
+      diagnosis.add('Cistos e Tumores Odontogênicos Inflamatórios - Cisto da bifurcação vestibular\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -409,9 +409,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isInteriorLesaoFoco || isInteriorLesaoMista) &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim) &&
         (isImpactacaoSim || isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Ameloblastoma \n\n Observações: \n - Raro na etnia melanoderma \n - Raro na faixa etária abaixo dos 26 anos \n - Raro na maxila');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Ameloblastoma \n\n Observações: \n - Raro na etnia melanoderma \n - Raro na faixa etária abaixo dos 26 anos \n - Raro na maxila\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -429,9 +429,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isInteriorLesaoFoco || isInteriorLesaoMista) &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim) &&
         (isImpactacaoSim || isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Ameloblastoma Maligno e Carcinoma Ameloblástico \n\n Observações: \n - Raro na etnia melanoderma \n - Raro na faixa etária abaixo dos 26 anos \n - Raro na maxila');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Ameloblastoma Maligno e Carcinoma Ameloblástico \n\n Observações: \n - Raro na etnia melanoderma \n - Raro na faixa etária abaixo dos 26 anos \n - Raro na maxila\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed) &&
@@ -449,9 +449,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim || isReabsorcaoRaizesNao) &&
         (isImpactacaoSim || isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Carcinoma Odontogênico de Células Claras (Tumor Odontogênico de Células Claras)');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Carcinoma Odontogênico de Células Claras (Tumor Odontogênico de Células Claras)\n\n\n');
     }
-    else if(isFemale &&
+    if((isFemale || isGenreNotSelected )&&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -469,9 +469,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isInteriorLesaoHipo || isInteriorLesaoFoco ) &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoNao || isImpactacaoNA )){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Adenomatoide \n\n Observações: \n - Raro na mandíbula \n - Lesão periférica rara');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Adenomatoide \n\n Observações: \n - Raro na mandíbula \n - Lesão periférica rara\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is26to50 || isOver60) &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -489,9 +489,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isInteriorLesaoMista || isInteriorLesaoFoco ) &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao || isReabsorcaoRaizesSim) &&
         (isImpactacaoNao || isImpactacaoNA || isImpactacaoSim)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Epitelial Calcificante (Tumor de Pindborg) \n\n Observações: \n - Raro na maxila \n - Lesão periférica rara');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Epitelial Calcificante (Tumor de Pindborg) \n\n Observações: \n - Raro na maxila \n - Lesão periférica rara\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed) &&
@@ -509,9 +509,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoNao || isImpactacaoNA)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Escamoso \n\n Observações: \n - Raro apresentar dor');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico Escamoso \n\n Observações: \n - Raro apresentar dor\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50) &&
         (isPainPresent || isPainNotPresent || isPainNotInformed) &&
@@ -529,9 +529,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoHipo &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoSim || isImpactacaoNA)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Fibroma Ameloblástico \n\n Observações: \n - Maior prevalência no gênero masculino \n - Raro a partir dos 26 até os 50 anos de idade \n - Raro na maxila');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Fibroma Ameloblástico \n\n Observações: \n - Maior prevalência no gênero masculino \n - Raro a partir dos 26 até os 50 anos de idade \n - Raro na maxila\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         is0to10 &&
         (isPainNotPresent || isPainNotInformed) &&
@@ -549,9 +549,9 @@ class _QuestionnaireState extends State<Questionnaire> {
         (isInteriorLesaoMista || isInteriorLesaoFoco ) &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
         (isImpactacaoSim || isImpactacaoNA)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Fibro-odontoma Ameloblástico \n\n Observações: \n - Raro a partir dos 26 até os 50 anos de idade \n - Raro na maxila \n - Rara lesão multiocular');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Fibro-odontoma Ameloblástico \n\n Observações: \n - Raro a partir dos 26 até os 50 anos de idade \n - Raro na maxila \n - Rara lesão multiocular\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
+    if((isFemale || isMale || isGenreNotSelected ) &&
         (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
         (is0to10 || is11to25 || is26to50 || isOver60) &&
         (isPainPresent || isPainNotInformed) &&
@@ -569,33 +569,113 @@ class _QuestionnaireState extends State<Questionnaire> {
         isInteriorLesaoFoco &&
         (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim) &&
         (isImpactacaoSim || isImpactacaoNA)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Fibrossarcoma Ameloblástico (Sarcoma Ameloblástico) \n\n Observações: \n - Raro no gênero feminino \n - Raro na maxila');
+      diagnosis.add('Cistos e Tumores Odontogênicos - Fibrossarcoma Ameloblástico (Sarcoma Ameloblástico) \n\n Observações: \n - Raro no gênero feminino \n - Raro na maxila\n\n\n');
     }
-    else if((isFemale || isMale || isGenreNotSelected ) &&
-        (isCaucasian || isMelanoderma || isAsian || isIndigenous || isEtinyNotSelected) &&
-        (is0to10 || is11to25 || is26to50 || isOver60) &&
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected) &&
+        (is0to10 || is11to25) &&
         (isPainPresent || isPainNotInformed) &&
         (isParestesiaNotPresent || isParestesiaNotInformed) &&
         (isBisfosfonatosNo ||isBisfosfonatosNotApply) &&
         (isMaxila || isMandibula || isMaxilaAndMandibula) &&
-        (isMolares || isRamoMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaNA || isOrigemOdontogenicaNAssociada ) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
+        (isExpansaoSim || isExpansaoNao ) &&
+        isLobularNA &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        isInteriorLesaoMista &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Odontoameloblastoma \n\n Observações: \n - Raro no gênero feminino \n - Raro na maxila\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo ||isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula) &&
         isOrigemCentral &&
         (isQuantidadeUmaLesao || isQuantidadeDuasLesao || isQuantidadeTresLesao || isQuantidadeGeneralizadoLesao) &&
-        (isOrigemOdontogenicaCoroa || isOrigemOdontogenicaNA || isOrigemOdontogenicaNAssociada ) &&
-        (isTamanhoLesaoM || isTamanhoLesaoG) &&
+        (isOrigemOdontogenicaNA || isOrigemOdontogenicaNAssociada ) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
         isExpansaoSim &&
-        isLobularMulti &&
-        isCorticalizadaDifusa &&
-        isInteriorLesaoFoco &&
-        (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim) &&
-        (isImpactacaoSim || isImpactacaoNA)){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Odontoameloblastoma \n\n Observações: \n - Raro no gênero feminino \n - Raro na maxila');
+        isLobularNA &&
+        isCorticalizadaNao &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Odontoma Composto \n\n Observações: \n - Raro no gênero feminino \n - Mais comum na maxila\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaNA || isOrigemOdontogenicaNAssociada ) &&
+        isTamanhoLesaoP &&
+        (isExpansaoSim || isExpansaoNao) &&
+        isLobularNA &&
+        isCorticalizadaNao &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Odontoma Complexo \n\n Observações: \n - Mais frequente na região de molares\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25 || is26to50 || isOver60) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice ) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM) &&
+        (isExpansaoSim || isExpansaoNao) &&
+        (isLobularUni || isLobularMulti) &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        (isInteriorLesaoHipo || isInteriorLesaoFoco) &&
+        isReabsorcaoRaizesSim &&
+        isImpactacaoSim){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Fibroma Odontogênico Central \n\n Observações: \n - Forte predileção ao gênero feminino\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25 || is26to50 || isOver60) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice ) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM) &&
+        (isExpansaoSim || isExpansaoNao) &&
+        (isLobularUni || isLobularMulti) &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        (isInteriorLesaoHipo || isInteriorLesaoFoco) &&
+        isReabsorcaoRaizesSim &&
+        isImpactacaoSim){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico de Células Granulares (Fibroma Odontogênico de Células Granulares) *Tumor raríssimo\n\n Observações: \n - Forte predileção ao gênero feminino\n\n\n');
     }
 
 
     else
       {
-        diagnosis.add('Erro');
+        diagnosis.add('Ocorreu algum erro inesperado');
       }
 
     return diagnosis;
@@ -693,7 +773,7 @@ class _QuestionnaireState extends State<Questionnaire> {
                   showDialog(
                     context: context,
                     builder: (_) => AlertDialog(
-                      title: const Text('Possível diagnóstico'),
+                      title: const Text('Possíveis diagnósticos'),
                       content: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,

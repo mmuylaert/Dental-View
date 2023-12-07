@@ -39,7 +39,7 @@ class _DiagnosticsPageState extends State<DiagnosticsPage> {
           )
               : polls.userPollsList.isEmpty
               ? const Center(
-            child: Text('Sem diagnosticos no momento'),
+            child: Text('Clique no botão de mais (+) abaixo para iniciar'),
           )
               : CustomScrollView(
             slivers: <Widget>[
