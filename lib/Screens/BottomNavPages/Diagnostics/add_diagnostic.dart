@@ -653,25 +653,244 @@ class _QuestionnaireState extends State<Questionnaire> {
     }
     if((isFemale || isMale || isGenreNotSelected) &&
         (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
-        (is0to10 || is11to25 || is26to50 || isOver60) &&
+        (is0to10 || is11to25 || is26to50) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        isMandibula &&
+        (isMolares || isPreMolares) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice ) &&
+        isTamanhoLesaoP &&
+        isExpansaoNao &&
+        (isLobularUni || isLobularMulti) &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        isInteriorLesaoHipo &&
+        (isReabsorcaoRaizesNao || isReabsorcaoRaizesNA ) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico de Células Granulares (Fibroma Odontogênico de Células Granulares) *Tumor raríssimo\n\n Observações: \n - Forte predileção ao gênero feminino\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25 || is26to50) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula || isATM) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA ) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
+        isExpansaoNao &&
+        (isLobularUni || isLobularMulti) &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        (isInteriorLesaoHipo || isInteriorLesaoFoco) &&
+        (isReabsorcaoRaizesNao || isReabsorcaoRaizesNA ) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Mixoma\n\n Observações: \n - Mais frequente na mandíbula\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is11to25 || is26to50) &&
+        (isPainPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula) &&
+        (isMolares || isPreMolares) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice) &&
+        isTamanhoLesaoP &&
+        isExpansaoNao &&
+        isLobularNA &&
+        isCorticalizadaNao &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesSim || isReabsorcaoRaizesNA ) &&
+        (isImpactacaoNao || isImpactacaoNA)){
+      diagnosis.add('Cistos e Tumores Odontogênicos - Cementoblastoma (Cementoma Verdadeiro)\n\n Observações: \n - Mais frequente na mandíbula\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25) &&
         (isPainNotPresent || isPainNotInformed) &&
         (isParestesiaNotPresent || isParestesiaNotInformed) &&
         (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
         (isMaxila || isMandibula || isMaxilaAndMandibula) &&
         (isMolares || isIncisivos || isCaninos || isPreMolares) &&
         isOrigemCentral &&
-        isQuantidadeUmaLesao &&
-        (isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice ) &&
-        (isTamanhoLesaoP || isTamanhoLesaoM) &&
-        (isExpansaoSim || isExpansaoNao) &&
-        (isLobularUni || isLobularMulti) &&
-        (isCorticalizadaSim || isCorticalizadaParcial) &&
-        (isInteriorLesaoHipo || isInteriorLesaoFoco) &&
-        isReabsorcaoRaizesSim &&
-        isImpactacaoSim){
-      diagnosis.add('Cistos e Tumores Odontogênicos - Tumor Odontogênico de Células Granulares (Fibroma Odontogênico de Células Granulares) *Tumor raríssimo\n\n Observações: \n - Forte predileção ao gênero feminino\n\n\n');
+        isQuantidadeGeneralizadoLesao &&
+        (isOrigemOdontogenicaCoroa || isOrigemOdontogenicaRaiz || isOrigemOdontogenicaApice) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG ) &&
+        isExpansaoNao &&
+        isLobularNA &&
+        isCorticalizadaNA &&
+        isInteriorLesaoHipo &&
+        isReabsorcaoRaizesNA &&
+        isImpactacaoNA){
+      diagnosis.add('Patologias Ósseas - Osteogênese Imperfeita *rara\n\n\n');
     }
-
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25 || is26to50 || isOver60) &&
+        (isPainPresent || isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMaxila || isMandibula || isMaxilaAndMandibula) &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        (isQuantidadeUmaLesao || isQuantidadeDuasLesao || isQuantidadeTresLesao || isQuantidadeGeneralizadoLesao) &&
+        (isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG ) &&
+        isExpansaoNao &&
+        isLobularNA &&
+        isCorticalizadaNao &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoNao)){
+      diagnosis.add('Patologias Ósseas - Osteopetrose (Doença do Osso Marmóreo)\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25) &&
+        (isPainPresent || isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        isMaxilaAndMandibula &&
+        (isMolares || isIncisivos || isCaninos || isPreMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        isQuantidadeGeneralizadoLesao &&
+        (isOrigemOdontogenicaCoroa || isOrigemOdontogenicaNA) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG ) &&
+        isExpansaoNao &&
+        isLobularNA &&
+        isCorticalizadaNA &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao || isReabsorcaoRaizesSim) &&
+        isImpactacaoSim){
+      diagnosis.add('Patologias Ósseas - Displasia Cleidocraniana\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is11to25 || is26to50) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        isMandibula &&
+        (isMolares || isPreMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaEA || isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA) &&
+        isTamanhoLesaoP &&
+        isExpansaoNao &&
+        isLobularMulti &&
+        isCorticalizadaSim &&
+        (isInteriorLesaoHipo || isInteriorLesaoFoco) &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoNao)){
+      diagnosis.add('Patologias Ósseas - Defeito Osteoporótico focal de medula\n\n Observações: \n -Mais frequente no gênero feminino\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is11to25 || is26to50 || isOver60) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMandibula || isMaxila || isMaxilaAndMandibula) &&
+        (isMolares || isRamoMandibula) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaApice || isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaEA) &&
+        isTamanhoLesaoP &&
+        isExpansaoNao &&
+        isLobularNA &&
+        isCorticalizadaNA &&
+        isInteriorLesaoHiper &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoNao)){
+      diagnosis.add('Patologias Ósseas - Osteosclerose Idiopática\n\n Observações: \n -Muito frequente na mandíbula\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25) &&
+        (isPainPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMandibula || isMaxila || isMaxilaAndMandibula) &&
+        (isPreMolares || isMolares || isRamoMandibula || isATM) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
+        isExpansaoNao &&
+        isLobularUni &&
+        isCorticalizadaNao &&
+        isInteriorLesaoHipo &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesSim) &&
+        (isImpactacaoNA || isImpactacaoSim)){
+      diagnosis.add('Patologias Ósseas - Osteólise Maciça (Doença do Osso Fantasma)\n\n Observações: \n -Maior frequência na mandíbula\n\n\n');
+    }
+    if(isFemale &&
+        (isCaucasian || isEtinyNotSelected) &&
+        (is26to50 || isOver60) &&
+        (isPainPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMandibula || isMaxila || isMaxilaAndMandibula) &&
+        (isIncisivos || isCaninos || isPreMolares || isMolares || isRamoMandibula || isATM) &&
+        isOrigemCentral &&
+        isQuantidadeGeneralizadoLesao &&
+        (isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
+        (isExpansaoSim || isExpansaoNao) &&
+        isLobularNA &&
+        isCorticalizadaNA &&
+        isInteriorLesaoMista &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoSim)){
+      diagnosis.add('Patologias Ósseas - Doença de Paget (Osteíte Deformante)\n\n Observações: \n -Maior frequência na manxila\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is0to10 || is11to25 || is26to50 || isOver60) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed || isParestesiaPresent) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMandibula || isMaxila || isMaxilaAndMandibula) &&
+        (isIncisivos || isCaninos) &&
+        isOrigemCentral &&
+        isQuantidadeUmaLesao &&
+        (isOrigemOdontogenicaNAssociada || isOrigemOdontogenicaNA) &&
+        (isTamanhoLesaoP || isTamanhoLesaoM || isTamanhoLesaoG) &&
+        (isExpansaoNao || isExpansaoSim) &&
+        (isLobularUni || isLobularMulti) &&
+        (isCorticalizadaNao || isCorticalizadaSim || isCorticalizadaParcial) &&
+        isInteriorLesaoHipo &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoSim)){
+      diagnosis.add('Patologias Ósseas - Lesão de Células Gigantes\n\n Observações: \n -Leve predileção ao gênero feminino\n-Leve predileção entre os 11 e os 25 anos\n-Raramente apresenta parestesia\n\n\n');
+    }
+    if((isFemale || isMale || isGenreNotSelected) &&
+        (isCaucasian || isMelanoderma || isIndigenous || isEtinyNotSelected || isAsian) &&
+        (is11to25 || is26to50) &&
+        (isPainNotPresent || isPainNotInformed) &&
+        (isParestesiaNotPresent || isParestesiaNotInformed) &&
+        (isBisfosfonatosNo || isBisfosfonatosNotApply) &&
+        (isMandibula || isMaxila || isMaxilaAndMandibula) &&
+        (isIncisivos || isCaninos || isPreMolares || isMolares || isRamoMandibula || isATM) &&
+        isOrigemCentral &&
+        isQuantidadeGeneralizadoLesao &&
+        isOrigemOdontogenicaNAssociada &&
+        isTamanhoLesaoG &&
+        isExpansaoSim &&
+        isLobularMulti &&
+        (isCorticalizadaSim || isCorticalizadaParcial) &&
+        isInteriorLesaoHipo &&
+        (isReabsorcaoRaizesNA || isReabsorcaoRaizesNao) &&
+        (isImpactacaoNA || isImpactacaoSim)){
+      diagnosis.add('Patologias Ósseas - Querubismo\n\n\n ');
+    }
 
     else
       {
